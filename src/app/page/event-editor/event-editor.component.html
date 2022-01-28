@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-6">
+    <form #eventForm="ngForm" (ngSubmit)="onUpdate(eventForm)">
+      <div class="form-group">
+        <label>Id</label>
+        <input required [(ngModel)]= "event.id" name="id" type="text" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label>Name</label>
+        <input required pattern = ".{8,}" [(ngModel)]= "event.name" name="name" type="text" class="form-control"/>
+        <div [hidden]="eventForm.valid || eventForm.pristine"
+        class="error-message">Nem megfelelő formátum!</div>
+      </div>
+      <div class="form-group">
+        <label>Date</label>
+        <input required [(ngModel)]= "event.date" name="date" type="text" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label>Time</label>
+        <input required [(ngModel)]= "event.time" name="time" type="text" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label>Location</label>
+        <input required [(ngModel)]= "event.location" name="location" type="text" class="form-control"/>
+      </div>
+      <button class="btn btn-primary" [disabled]="eventForm.invalid">
+        <i class="fa fa-save"></i>
+      </button>
+    </form>
+  </div>
+</div>
